@@ -4,36 +4,20 @@
 <head>
     <!-- Separator -->
     <title>uXat</title>
-    <link rel="icon" type="image/x-icon" href="uxat/library/icons/x.ico">
+    <link rel="icon" type="image/x-icon" href="src/rsc/icons/x.ico">
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="uxat/project/frontend/src/css/theme.css">
-    <link rel="stylesheet" type="text/css" href="uxat/project/frontend/src/css/index.css">
-    <link rel="stylesheet" type="text/css" href="uxat/project/frontend/src/css/uxatMain.css">
-    <link rel="stylesheet" type="text/css" href="uxat/project/frontend/src/css/uxatInit.css">
-    <link rel="stylesheet" type="text/css" href="uxat/project/frontend/src/css/uxatLogin.css">
-    <link rel="stylesheet" type="text/css" href="uxat/project/frontend/src/css/uxatCreate.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/index.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/uxatInit.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/uxatAccess.css">
     <!-- Scripts -->
-    <script src="uxat/project/frontend/lib/angular-1.8.2/angular.js"></script>
-    <script src="uxat/project/frontend/src/ctrl/uxat.js"></script>
+    <script src="src/dev/frontend/rsc/angular-1.8.2/angular.js"></script>
+    <script src="src/dev/frontend/src/js/uxat.js"></script>
 </head>
 
 <body id="bodyId" class="dark bodyClass ng-scope" ng-controller="uxatCtrl">
-    <!-- Main Secret -->
-    <ng-include src="'uxat/project/frontend/src/html/uxatMain.html'"
-                ng-if="helloWorldView">
-    </ng-include>
-    <!-- Init Page -->
-    <ng-include src="'uxat/project/frontend/src/html/uxatInit.html'"
-                ng-if="uXatView">
-    </ng-include>
-    <!-- Login User Page -->
-    <ng-include src="'uxat/project/frontend/src/html/uxatLogin.html'"
-                ng-if="loginView">
-    </ng-include>
-    <!-- Create User Page -->
-    <ng-include src="'uxat/project/frontend/src/html/uxatCreate.html'"
-                ng-if="createView">
-    </ng-include>
+    <!-- Main Page -->
+    <ng-include src="'src/dev/frontend/src/html/uxatInit.html'"></ng-include>
 </body>
 
 </html>

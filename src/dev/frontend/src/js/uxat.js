@@ -28,14 +28,16 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     const mandatoryCharsPassUpper = "QWERTYUIOPASDFGHJKLZXCVBNM";
     const mandatoryCharsPassDigit = "0123456789";
 
+    $scope.pin = "1128";
+
     const appBegin = true;
 
-    $scope.helloWorldView = appBegin;
-    $scope.uXatView = !appBegin;
-    $scope.loginView = !appBegin;
-    $scope.createView = !appBegin;
-    $scope.userLoggedContactsView = !appBegin;
-    $scope.userLoggedMessagesView = !appBegin;
+    $scope.lettersView = appBegin;
+    $scope.uxatAccessView = !appBegin;
+    $scope.accessPinView = !appBegin;
+    $scope.accessHowView = !appBegin;
+    $scope.accessLoginView = !appBegin;
+    $scope.accessCreateView = !appBegin;
 
     /*************************************************************************/
     /** GERAL */
@@ -51,51 +53,62 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     }
 
     /*************************************************************************/
-    /** INIT */
+    /** PAGES */
 
-    $scope.go = function () {
-        $scope.helloWorldView = false;
-        $scope.uXatView = true;
-        $scope.loginView = false;
-        $scope.createView = false;
-        $scope.userLoggedContactsView = false;
-        $scope.userLoggedMessagesView = false;
+    $scope.goToBegin = function () {
+        $scope.lettersView = true;
+        $scope.uxatAccessView = false;
+        $scope.accessPinView = false;
+        $scope.accessHowView = false;
+        $scope.accessLoginView = false;
+        $scope.accessCreateView = false;
     }
 
-    $scope.loginAccess = function () {
-        $scope.helloWorldView = false;
-        $scope.uXatView = false;
-        $scope.loginView = true;
-        $scope.createView = false;
-        $scope.userLoggedContactsView = false;
-        $scope.userLoggedMessagesView = false;
+    $scope.goToAccessModeInsertPin = function () {
+        $scope.lettersView = false;
+        $scope.uxatAccessView = true;
+        $scope.accessPinView = true;
+        $scope.accessHowView = false;
+        $scope.accessLoginView = false;
+        $scope.accessCreateView = false;
     }
 
-    $scope.createAccess = function () {
-        $scope.helloWorldView = false;
-        $scope.uXatView = false;
-        $scope.loginView = false;
-        $scope.createView = true;
-        $scope.userLoggedContactsView = false;
-        $scope.userLoggedMessagesView = false;
+    $scope.goToAccessMode = function () {
+        $scope.lettersView = false;
+        $scope.uxatAccessView = true;
+        $scope.accessPinView = false;
+        $scope.accessHowView = true;
+        $scope.accessLoginView = false;
+        $scope.accessCreateView = false;
     }
 
-    $scope.userLoggedContactsAccess = function () {
-        $scope.helloWorldView = false;
-        $scope.uXatView = false;
-        $scope.loginView = false;
-        $scope.createView = false;
-        $scope.userLoggedContactsView = true;
-        $scope.userLoggedMessagesView = false;
+    $scope.goToAccessModeLogin = function () {
+        $scope.lettersView = false;
+        $scope.uxatAccessView = true;
+        $scope.accessPinView = false;
+        $scope.accessHowView = false;
+        $scope.accessLoginView = true;
+        $scope.accessCreateView = false;
     }
 
-    $scope.userLoggedMessagesAccess = function () {
-        $scope.helloWorldView = false;
-        $scope.uXatView = false;
-        $scope.loginView = false;
-        $scope.createView = false;
-        $scope.userLoggedContactsView = false;
-        $scope.userLoggedMessagesView = true;
+    $scope.goToAccessModeCreate = function () {
+        $scope.lettersView = false;
+        $scope.uxatAccessView = true;
+        $scope.accessPinView = false;
+        $scope.accessHowView = false;
+        $scope.accessLoginView = false;
+        $scope.accessCreateView = true;
+    }
+
+    /*************************************************************************/
+    /** PIN */
+
+    $scope.pinValidation = function(pinInput) {
+        if ($scope.pin === pinInput) {
+            $scope.goToAccessMode();
+        } else {
+            $scope.goToBegin();
+        }
     }
 
     /*************************************************************************/
@@ -150,11 +163,11 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         return 0;
     }
 
-    $scope.configUserToPush = function(user) {
-        return {nick: user.nick.toLowerCase(), pass: user.pass};
+    $scope.configUserToPush = function (user) {
+        return { nick: user.nick.toLowerCase(), pass: user.pass };
     }
 
-    $scope.pushUser = function (user) { 
+    $scope.pushUser = function (user) {
         $scope.users.push(angular.copy(user));
         $scope.usersN++;
         delete user;

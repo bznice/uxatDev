@@ -1,0 +1,23 @@
+<div class="uxatBoxDiv">
+    <h2 class="uxatH2">
+        Login
+    </h2>
+    <p class="uxatP">
+        Nick:
+    </p>
+    <input type="text" class="uxatInput" placeholder="Put your nick here..." ng-model="user.nick" />
+    <p class="uxatP">
+        Pass:
+    </p>
+    <input type="text" class="uxatInput" placeholder="Put your pass here..." ng-model="user.pass" />
+    <p></p>
+    <button class="uxatButton" ng-click="loginUser(user)" ng-disabled="!user.nick || !user.pass">
+        Login Account
+    </button>
+    <p></p>
+    <button class="uxatButton" ng-click="goToAccessMode()">
+        Back to Login/Create
+    </button>
+    <p></p>
+    <span id="spanErrorLogin" class="errorSpan"></span>
+</div>

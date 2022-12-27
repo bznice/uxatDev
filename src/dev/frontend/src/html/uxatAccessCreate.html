@@ -1,0 +1,35 @@
+<div class="uxatBoxDiv">
+    <h2 class="uxatH2">
+        Create
+    </h2>
+    <p class="uxatP">
+        Nick:
+    </p>
+    <input type="text" class="uxatInput" placeholder="Put your nick here..." ng-model="user.nick" />
+    <p class="uxatP">
+        Pass:
+    </p>
+    <input type="text" class="uxatInput" placeholder="Put your pass here..." ng-model="user.pass" />
+    <p class="uxatP">
+        Retry Pass:
+    </p>
+    <input type="text" class="uxatInput" placeholder="Put your pass here..." ng-model="user.passTentative"
+        ng-disabled="!user.pass" />
+    <p></p>
+    <button class="uxatButton" ng-click="createUser(user)"
+        ng-disabled="!user.nick || !user.pass || !user.passTentative">
+        Create Account
+    </button>
+    <p></p>
+    <button class="uxatButton" ng-click="goToAccessMode()">
+        Back to Login/Create
+    </button>
+    <p></p>
+    <span id="spanErrorCreate" class="errorSpan"></span>
+    <p class="uxatP">
+        INFO 1: user nick isn't case-sensitive, no matter if you put lower or upper case, it will be converted to lower!
+    </p>
+    <p class="uxatP">
+        INFO 2: user pass mandatory with lower, upper, digits, and 8 or more length!
+    </p>
+</div>
