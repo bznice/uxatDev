@@ -21,15 +21,15 @@
         Create Account
     </button>
     <p></p>
-    <button class="uxatButton" ng-click="goToAccessMode()">
+    <button class="uxatButton" ng-click="goToAccessMode(false)">
         Back to Login/Create
     </button>
-    <p></p>
     <span id="spanErrorCreate" class="errorSpan"></span>
+    <p></p>
     <p class="uxatP">
         INFO 1: user nick isn't case-sensitive, no matter if you put lower or upper case, it will be converted to lower!
     </p>
     <p class="uxatP">
-        INFO 2: user pass mandatory with lower, upper, digits, and 8 or more length!
+        INFO 2: user pass requirements: lower, upper, digits, zero special chars, 8 or more length!
     </p>
 </div>

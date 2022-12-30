@@ -4,6 +4,7 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     /*************************************************************************/
     /** DATA */
 
+    // User data init
     $scope.users = [
         { nick: "bznc", pass: "xxXX1234" },
         { nick: "viruz", pass: "xxXX1904" },
@@ -14,6 +15,7 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     $scope.userLogged = "";
     $scope.userLoggedContacts = [];
 
+    // Error messages and aux vars
     $scope.passDontMatchSpan = "";
     const passDontMatchMessage = "Both passwords don't match!";
     $scope.passSmallSpan = "";
@@ -23,21 +25,25 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     $scope.userNotUniqueSpan = "";
     const userNotUniqueMessage = "This Nick is not available!";
 
+    // Pass validation aux vars
     const minSizePass = 8;
     const mandatoryCharsPassLower = "qwertyuiopasdfghjklzxcvbnm";
     const mandatoryCharsPassUpper = "QWERTYUIOPASDFGHJKLZXCVBNM";
     const mandatoryCharsPassDigit = "0123456789";
+    const mandatoryCharsPassAll = mandatoryCharsPassLower + mandatoryCharsPassUpper + mandatoryCharsPassDigit;
 
-    $scope.pin = "1128";
-
+    // To show initial page
     const appBegin = true;
 
+    // ngInclude changers
     $scope.lettersView = appBegin;
     $scope.uxatAccessView = !appBegin;
     $scope.accessPinView = !appBegin;
     $scope.accessHowView = !appBegin;
     $scope.accessLoginView = !appBegin;
     $scope.accessCreateView = !appBegin;
+
+    $scope.pin = "1128";
 
     /*************************************************************************/
     /** GERAL */
@@ -64,25 +70,16 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         $scope.accessCreateView = false;
     }
 
-    $scope.goToAccessModeInsertPin = function () {
+    $scope.goToAccessMode = function (pinFirst) {
         $scope.lettersView = false;
         $scope.uxatAccessView = true;
-        $scope.accessPinView = true;
-        $scope.accessHowView = false;
+        $scope.accessPinView = pinFirst;
+        $scope.accessHowView = !pinFirst;
         $scope.accessLoginView = false;
         $scope.accessCreateView = false;
     }
 
-    $scope.goToAccessMode = function () {
-        $scope.lettersView = false;
-        $scope.uxatAccessView = true;
-        $scope.accessPinView = false;
-        $scope.accessHowView = true;
-        $scope.accessLoginView = false;
-        $scope.accessCreateView = false;
-    }
-
-    $scope.goToAccessModeLogin = function () {
+    $scope.goToLogin = function () {
         $scope.lettersView = false;
         $scope.uxatAccessView = true;
         $scope.accessPinView = false;
@@ -91,7 +88,7 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         $scope.accessCreateView = false;
     }
 
-    $scope.goToAccessModeCreate = function () {
+    $scope.goToCreate = function () {
         $scope.lettersView = false;
         $scope.uxatAccessView = true;
         $scope.accessPinView = false;
@@ -105,7 +102,7 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
 
     $scope.pinValidation = function(pinInput) {
         if ($scope.pin === pinInput) {
-            $scope.goToAccessMode();
+            $scope.goToAccessMode(false);
         } else {
             $scope.goToBegin();
         }
@@ -115,16 +112,15 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     /** LOGIN */
 
     $scope.loginUser = function (user) {
-        $scope.go();
+        $scope.goToBegin();
     }
 
     /*************************************************************************/
     /** CREATE */
 
     $scope.createUser = function (user) {
-        if ((user.nick !== "" && user.nick.length > 0)
-            && (user.pass !== "" && user.pass.length > 0)) {
-            let resultValidation = $scope.createAccountValidation(user);
+        if ($scope.verifyAllUserInputFields(user)) {
+            var resultValidation = $scope.createAccountValidation(user);
             if (resultValidation === 0) {
                 user = $scope.configUserToPush(angular.copy(user));
                 $scope.pushUser(user);
@@ -152,16 +148,62 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         }
     }
 
-    /*---------- OPERATIONS -------------------*/
+    /*---------- VALIDATION -------------------*/
+
+    $scope.verifyAllUserInputFields = function(user) {
+        return (user.nick !== "" && user.nick.length > 0)
+            && (user.pass !== "" && user.pass.length > 0)
+            && (user.passTentative !== "" && user.passTentative.length > 0);
+    }
 
     $scope.createAccountValidation = function (user) {
         if (!($scope.passEquals(user.pass, user.passTentative))) return 1;
         if (!($scope.verifyNickIsUnique(user.nick))) return 2;
         if (!($scope.passNotSmall(user.pass))) return 3;
+        if (($scope.passHaveSpecialChars(user.pass))) return 4;
         if (!($scope.passHaveMandatoryChars(user.pass))) return 4;
 
         return 0;
     }
+    
+    $scope.passEquals = function (passO, passT) {
+        return passO === passT;
+    }
+
+    $scope.verifyNickIsUnique = function (nick) {
+        var userListResult = $scope.users.filter(user => user.nick === nick);
+        return userListResult.length === 0;
+    }
+
+    $scope.passNotSmall = function (pass) {
+        return pass.length >= minSizePass;
+    }
+
+    $scope.passHaveSpecialChars = function(pass) {
+        var contains = false;
+        [...pass].forEach((c) => {
+            if(!mandatoryCharsPassAll.includes(c)) { contains = true; }
+        });
+        return contains;
+    }
+
+    $scope.passHaveMandatoryChars = function (pass) {
+        var containsLower = false;
+        var containsUpper = false;
+        var containsDigit = false;
+        [...mandatoryCharsPassLower].forEach((c) => {
+            if (pass.includes(c)) { containsLower = true; }
+        });
+        [...mandatoryCharsPassUpper].forEach((c) => {
+            if (pass.includes(c)) { containsUpper = true; }
+        });
+        [...mandatoryCharsPassDigit].forEach((c) => {
+            if (pass.includes(c)) { containsDigit = true; }
+        });
+        return containsLower && containsUpper && containsDigit;
+    }
+
+    /*---------- PUSH USER --------------------*/
 
     $scope.configUserToPush = function (user) {
         return { nick: user.nick.toLowerCase(), pass: user.pass };
@@ -173,42 +215,8 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         delete user;
     }
 
-    $scope.passEquals = function (passO, passT) {
-        return passO === passT;
-    }
-
-    $scope.verifyNickIsUnique = function (nick) {
-        let userListResult = $scope.users.filter(user => user.nick === nick);
-        return userListResult.length === 0;
-    }
-
-    $scope.passNotSmall = function (pass) {
-        return pass.length >= minSizePass;
-    }
-
-    $scope.passHaveMandatoryChars = function (pass) {
-        let containsLower = false;
-        let containsUpper = false;
-        let containsDigit = false;
-        [...mandatoryCharsPassLower].forEach((c) => {
-            if (pass.includes(c)) {
-                containsLower = true;
-            }
-        });
-        [...mandatoryCharsPassUpper].forEach((c) => {
-            if (pass.includes(c)) {
-                containsUpper = true;
-            }
-        });
-        [...mandatoryCharsPassDigit].forEach((c) => {
-            if (pass.includes(c)) {
-                containsDigit = true;
-            }
-        });
-        return containsLower && containsUpper && containsDigit;
-    }
-
-    /*---------- SPAN CONTROLLER --------------*/
+    /*************************************************************************/
+    /** ERROR SPANS */
 
     $scope.spanErrorPassDontMatch = function () {
         var spanError = document.getElementById("spanErrorCreate");
