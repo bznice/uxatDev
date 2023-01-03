@@ -1,7 +1,8 @@
 angular.module("uxat", []);
 angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
 
-    /*************************************************************************/
+    /*****************************************************************************************************/
+    
     /** DATA */
 
     // User data init
@@ -42,10 +43,12 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     $scope.accessHowView = !appBegin;
     $scope.accessLoginView = !appBegin;
     $scope.accessCreateView = !appBegin;
+    $scope.uxatLoggedView = !appBegin;
 
     $scope.pin = "1128";
 
-    /*************************************************************************/
+    /*****************************************************************************************************/
+
     /** GERAL */
 
     $scope.setTimeoutSpan = function (element, span) {
@@ -58,7 +61,8 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         timeoutId = "";
     }
 
-    /*************************************************************************/
+    /*****************************************************************************************************/
+
     /** PAGES */
 
     $scope.goToBegin = function () {
@@ -68,6 +72,9 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         $scope.accessHowView = false;
         $scope.accessLoginView = false;
         $scope.accessCreateView = false;
+        $scope.uxatLoggedView = false;
+        $scope.loggedContactsView = false;
+        $scope.loggedMessagesView = false;
     }
 
     $scope.goToAccessMode = function (pinFirst) {
@@ -77,6 +84,9 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         $scope.accessHowView = !pinFirst;
         $scope.accessLoginView = false;
         $scope.accessCreateView = false;
+        $scope.uxatLoggedView = false;
+        $scope.loggedContactsView = false;
+        $scope.loggedMessagesView = false;
     }
 
     $scope.goToLogin = function () {
@@ -86,6 +96,9 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         $scope.accessHowView = false;
         $scope.accessLoginView = true;
         $scope.accessCreateView = false;
+        $scope.uxatLoggedView = false;
+        $scope.loggedContactsView = false;
+        $scope.loggedMessagesView = false;
     }
 
     $scope.goToCreate = function () {
@@ -95,9 +108,37 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         $scope.accessHowView = false;
         $scope.accessLoginView = false;
         $scope.accessCreateView = true;
+        $scope.uxatLoggedView = false;
+        $scope.loggedContactsView = false;
+        $scope.loggedMessagesView = false;
     }
 
-    /*************************************************************************/
+    $scope.goToContacts = function () {
+        $scope.lettersView = false;
+        $scope.uxatAccessView = true;
+        $scope.accessPinView = false;
+        $scope.accessHowView = false;
+        $scope.accessLoginView = false;
+        $scope.accessCreateView = false;
+        $scope.uxatLoggedView = true;
+        $scope.loggedContactsView = true;
+        $scope.loggedMessagesView = false;
+    }
+
+    $scope.goToMessages = function () {
+        $scope.lettersView = false;
+        $scope.uxatAccessView = true;
+        $scope.accessPinView = false;
+        $scope.accessHowView = false;
+        $scope.accessLoginView = false;
+        $scope.accessCreateView = false;
+        $scope.uxatLoggedView = true;
+        $scope.loggedContactsView = false;
+        $scope.loggedMessagesView = true;
+    }
+
+    /*****************************************************************************************************/
+
     /** PIN */
 
     $scope.pinValidation = function(pinInput) {
@@ -108,18 +149,58 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         }
     }
 
-    /*************************************************************************/
+    /*****************************************************************************************************/
+
     /** LOGIN */
 
     $scope.loginUser = function (user) {
-        $scope.goToBegin();
+        if ($scope.verifyAllUserInputFieldsLoginAccount(user)) {
+            var resultValidation = $scope.loginAccountValidation(user);
+            if (resultValidation === 0) {
+                $scope.goToBegin();
+            } else {
+                switch (resultValidation) {
+                    case 1: $scope.spanErrorUserNotRegisted();
+                        user.pass = "";
+                        user.passTentative = "";
+                        break;
+                    case 2: $scope.spanErrorPassIncorrect();
+                        user.nick = "";
+                        break;
+                    default: ;
+                }
+            }
+        }
     }
 
-    /*************************************************************************/
+    /*---------- VALIDATION -------------------*/
+
+    $scope.verifyAllUserInputFieldsLoginAccount = function(user) {
+        return (user.nick !== "" && user.nick.length > 0)
+            && (user.pass !== "" && user.pass.length > 0);
+    }
+
+    $scope.loginAccountValidation = function (user) {
+        if (!($scope.userNotRegisted(user.nick))) return 1;
+        if (!($scope.passIncorrect(user))) return 2;
+
+        return 0;
+    }
+
+    $scope.userNotRegisted = function(nick) {
+        return $scope.users.find(e => e.nick === nick) != null;
+    }
+
+    $scope.passIncorrect = function(user) {
+        return $scope.users.find(e => e.nick === user.nick).pass === user.pass;
+    }
+
+    /*****************************************************************************************************/
+
     /** CREATE */
 
     $scope.createUser = function (user) {
-        if ($scope.verifyAllUserInputFields(user)) {
+        if ($scope.verifyAllUserInputFieldsCreateAccount(user)) {
             var resultValidation = $scope.createAccountValidation(user);
             if (resultValidation === 0) {
                 user = $scope.configUserToPush(angular.copy(user));
@@ -150,7 +231,7 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
 
     /*---------- VALIDATION -------------------*/
 
-    $scope.verifyAllUserInputFields = function(user) {
+    $scope.verifyAllUserInputFieldsCreateAccount = function(user) {
         return (user.nick !== "" && user.nick.length > 0)
             && (user.pass !== "" && user.pass.length > 0)
             && (user.passTentative !== "" && user.passTentative.length > 0);
@@ -215,7 +296,8 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         delete user;
     }
 
-    /*************************************************************************/
+    /*****************************************************************************************************/
+
     /** ERROR SPANS */
 
     $scope.spanErrorPassDontMatch = function () {
@@ -242,5 +324,5 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         $scope.setTimeoutSpan(spanError, $scope.userNotUniqueSpan);
     }
 
-    /*************************************************************************/
+    /*****************************************************************************************************/
 }]);

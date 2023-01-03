@@ -1,0 +1,13 @@
+<div class="uxatDiv">
+    <h1 class="uxatH1">
+        HELLO MA MAN!
+    </h1>
+    <ng-include
+        src="'src/dev/frontend/src/html/uxatLoggedContacts.html'"
+        ng-if="loggedContactsView">
+    </ng-include>
+    <ng-include
+        src="'src/dev/frontend/src/html/uxatLoggedMessages.html'"
+        ng-if="loggedMessagesView">
+    </ng-include>
+</div>
