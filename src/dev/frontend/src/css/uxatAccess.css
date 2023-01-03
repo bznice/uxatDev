@@ -24,6 +24,13 @@
     text-shadow: var(--shadow-color) 1px 0.5px;
 }
 
+.uxatH1,
+.uxatH2,
+.uxatP,
+.uxatInput {
+    width: -webkit-fill-available;
+}
+
 .uxatH1 {
     margin: 25px 0px;
     border: 0px;
@@ -32,7 +39,7 @@
 }
 
 .uxatH2 {
-    justify-self: center;
+    text-align: center;
     font-size: var(--h2-font-size);
 }
 
@@ -43,7 +50,6 @@
 .uxatInput {
     margin: 0;
     padding: 5px 5px;
-    width: -webkit-fill-available;
     border-radius: 3px;
     font-size: var(--input-font-size);
     font-family: var(--font-family);
