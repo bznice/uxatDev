@@ -181,18 +181,18 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     }
 
     $scope.loginAccountValidation = function (user) {
-        if (!($scope.userNotRegisted(user.nick))) return 1;
-        if (!($scope.passIncorrect(user))) return 2;
+        if ($scope.userNotRegisted(user.nick)) return 1;
+        if ($scope.passIncorrect(user)) return 2;
 
         return 0;
     }
 
     $scope.userNotRegisted = function(nick) {
-        return $scope.users.find(e => e.nick === nick) != null;
+        return $scope.users.find(e => e.nick === nick) === (null || undefined);
     }
 
     $scope.passIncorrect = function(user) {
-        return $scope.users.find(e => e.nick === user.nick).pass === user.pass;
+        return $scope.users.find(e => e.nick === user.nick).pass !== user.pass;
     }
 
     /*****************************************************************************************************/
