@@ -25,6 +25,10 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     const passNotAllowMessage = "Password mandatory contain lower, upper, digit, ONLY!";
     $scope.userNotUniqueSpan = "";
     const userNotUniqueMessage = "This Nick is not available!";
+    $scope.userNotRegistedSpan = "";
+    const userNotRegistedMessage = "This nick don't exist!";
+    $scope.passIncorrectSpan = "";
+    const passIncorrectMessage = "Passwork incorrect!";
 
     // Pass validation aux vars
     const minSizePass = 8;
@@ -157,15 +161,15 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
         if ($scope.verifyAllUserInputFieldsLoginAccount(user)) {
             var resultValidation = $scope.loginAccountValidation(user);
             if (resultValidation === 0) {
-                $scope.goToBegin();
+                $scope.goToContacts();
             } else {
                 switch (resultValidation) {
                     case 1: $scope.spanErrorUserNotRegisted();
+                        user.nick = "";
                         user.pass = "";
-                        user.passTentative = "";
                         break;
                     case 2: $scope.spanErrorPassIncorrect();
-                        user.nick = "";
+                        user.pass = "";
                         break;
                     default: ;
                 }
@@ -299,6 +303,22 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     /*****************************************************************************************************/
 
     /** ERROR SPANS */
+
+    /*---------- LOGIN ------------------------*/
+
+    $scope.spanErrorUserNotRegisted = function () {
+        var spanError = document.getElementById("spanErrorLogin");
+        spanError.textContent = userNotRegistedMessage;
+        $scope.setTimeoutSpan(spanError, $scope.userNotRegistedSpan);
+    }
+
+    $scope.spanErrorPassIncorrect = function () {
+        var spanError = document.getElementById("spanErrorLogin");
+        spanError.textContent = passIncorrectMessage;
+        $scope.setTimeoutSpan(spanError, $scope.passIncorrectSpan);
+    }
+
+    /*---------- CREATE -----------------------*/
 
     $scope.spanErrorPassDontMatch = function () {
         var spanError = document.getElementById("spanErrorCreate");

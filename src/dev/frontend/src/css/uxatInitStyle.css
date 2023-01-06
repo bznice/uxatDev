@@ -1,0 +1,23 @@
+@import 'themeStyleVars.css';
+
+.lettersDivClass,
+.letterClass {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.lettersDivClass {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.letterClass {
+    text-align: center;
+    font-size: min(25vw, 100vh);
+    font-family: var(--font-family);
+    color: var(--letter-text-color);
+    text-shadow: var(--letter-shadow-color) 4px 2px;
+}

@@ -1,21 +1,21 @@
-<div class="uxatBoxDiv">
-    <h2 class="uxatH2">
+<div class="accessBoxDiv">
+    <h2 class="accessH2">
         Login Account
     </h2>
-    <p class="uxatP">
+    <p class="accessP">
         Nick:
     </p>
-    <input type="text" class="uxatInput" placeholder="Put your nick here..." ng-model="user.nick" />
-    <p class="uxatP">
+    <input type="text" class="accessInput" placeholder="Put your nick here..." ng-model="user.nick" />
+    <p class="accessP">
         Pass:
     </p>
-    <input type="text" class="uxatInput" placeholder="Put your pass here..." ng-model="user.pass" />
+    <input type="text" class="accessInput" placeholder="Put your pass here..." ng-model="user.pass" />
     <p></p>
-    <button class="uxatButton" ng-click="loginUser(user)" ng-disabled="!user.nick || !user.pass">
+    <button class="accessButton" ng-click="loginUser(user)" ng-disabled="!user.nick || !user.pass">
         Login Account
     </button>
     <p></p>
-    <button class="uxatButton" ng-click="goToAccessMode(false)">
+    <button class="accessButton" ng-click="goToAccessMode(false)">
         Back to Login/Create
     </button>
     <p></p>

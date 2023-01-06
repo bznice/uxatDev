@@ -1,0 +1,74 @@
+@import 'themeStyleVars.css';
+
+.loggedDiv,
+.loggedBoxDiv {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+}
+
+.loggedDiv {
+    text-align: center;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    text-shadow: var(--shadow-color) 2px 1px;
+}
+
+.loggedBoxDiv {
+    text-align: left;
+    margin: 20px 100px;
+    padding: 30px;
+    width: 420px;
+    border-radius: 25px;
+    background-color: var(--logged-box-div-background-color);
+    text-shadow: var(--shadow-color) 1px 0.5px;
+}
+
+.loggedH1,
+.loggedH2,
+.loggedP,
+.loggedInput {
+    width: -webkit-fill-available;
+}
+
+.loggedH1 {
+    margin: 25px 0px;
+    border: 0px;
+    padding: 0px;
+    font-size: var(--h1-font-size);
+}
+
+.loggedH2 {
+    text-align: center;
+    font-size: var(--h2-font-size);
+}
+
+.loggedP {
+    font-size: var(--p-font-size);
+}
+
+.loggedInput {
+    margin: 0;
+    padding: 5px 5px;
+    border-radius: 3px;
+    font-size: var(--input-font-size);
+    font-family: var(--font-family);
+    background-color: var(--input-background-color);
+    border-color: var(--input-border-color);
+    color: var(--input-text-color);
+    text-shadow: var(--shadow-color) 1px 0.5px;
+}
+
+.loggedButton {
+    text-align: center;
+    padding: 5px 5px;
+    width: -webkit-fill-available;
+    border-width: 1px;
+    border-radius: 3px;
+    font-size: var(--button-font-size);
+    font-family: var(--font-family);
+    background-color: var(--button-background-color);
+    border-color: var(--button-border-color);
+    color: var(--button-text-color);
+    text-shadow: var(--shadow-color) 1px 0.5px;
+}

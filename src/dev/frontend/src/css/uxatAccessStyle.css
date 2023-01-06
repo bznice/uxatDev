@@ -1,0 +1,74 @@
+@import 'themeStyleVars.css';
+
+.accessDiv,
+.accessBoxDiv {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+}
+
+.accessDiv {
+    text-align: center;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    text-shadow: var(--shadow-color) 2px 1px;
+}
+
+.accessBoxDiv {
+    text-align: left;
+    margin: 20px 100px;
+    padding: 30px;
+    width: 420px;
+    border-radius: 25px;
+    background-color: var(--access-box-div-background-color);
+    text-shadow: var(--shadow-color) 1px 0.5px;
+}
+
+.accessH1,
+.accessH2,
+.accessP,
+.accessInput {
+    width: -webkit-fill-available;
+}
+
+.accessH1 {
+    margin: 25px 0px;
+    border: 0px;
+    padding: 0px;
+    font-size: var(--h1-font-size);
+}
+
+.accessH2 {
+    text-align: center;
+    font-size: var(--h2-font-size);
+}
+
+.accessP {
+    font-size: var(--p-font-size);
+}
+
+.accessInput {
+    margin: 0;
+    padding: 5px 5px;
+    border-radius: 3px;
+    font-size: var(--input-font-size);
+    font-family: var(--font-family);
+    background-color: var(--input-background-color);
+    border-color: var(--input-border-color);
+    color: var(--input-text-color);
+    text-shadow: var(--shadow-color) 1px 0.5px;
+}
+
+.accessButton {
+    text-align: center;
+    padding: 5px 5px;
+    width: -webkit-fill-available;
+    border-width: 1px;
+    border-radius: 3px;
+    font-size: var(--button-font-size);
+    font-family: var(--font-family);
+    background-color: var(--button-background-color);
+    border-color: var(--button-border-color);
+    color: var(--button-text-color);
+    text-shadow: var(--shadow-color) 1px 0.5px;
+}
