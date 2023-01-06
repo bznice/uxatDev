@@ -1,36 +1,47 @@
 .dark {
-    --body-background-color: #121212;
 
+    /* - - - COLORS - - - */
+
+    --body-background-color: #121212;
+    --pin-box-div-background-color: #000042;
     --access-box-div-background-color: #420000;
     --logged-box-div-background-color: #004200;
 
-    --text-color: #ededed;
-    --shadow-color: #b7b7b7;
-    --error-text-color: #aa4200;
-    --error-shadow-color: #882100;
-    --info-text-color1: #121212;
-    --info-shadow-color1: #ededed;
-    --info-text-color2: #ededed;
-    --info-shadow-color2: #121212;
+    --text-color-dark: #121212;
+    --shadow-color-dark: #484848;
 
-    --letter-text-color: #ededed;
-    --letter-shadow-color: #b7b7b7;
+    --text-color-light: #ededed;
+    --shadow-color-light: #b7b7b7;
 
+    --letter-text-color: #121212;
+    --letter-shadow-color: #420000;
 
-    --input-background-color: #dcdcdc;
-    --input-border-color: #cbcbcb;
-    --input-text-color: #121212;
+    --error-text-color: #ee4242;
+    --error-shadow-color: #dd3131;
+
+    --info-text-color-dark: #121212;
+    --info-shadow-color-dark: #ededed;
+
+    --info-text-color-light: #ededed;
+    --info-shadow-color-light: #121212;
+
+    --input-text-box-background-color: #dcdcdc;
+    --input-text-box-border-color: #cbcbcb;
+    --input-text-box-text-color: #121212;
 
     --button-background-color: #303030;
     --button-border-color: #404040;
     --button-text-color: #efefef;
-    
+
+    /* - - - SIZES - - - */
 
     --h1-font-size: 30px;
     --h2-font-size: 20px;
     --p-font-size: 18px;
     --input-font-size: 16px;
     --button-font-size: 16px;
+
+    /* - - - STYLES - - - */
 
     --font-family: "Lucida Console";
 }
