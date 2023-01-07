@@ -1,0 +1,8 @@
+TODO:
+
+- Delete account;
+- Study backend, 'cause basically end frontend tasks
+- Draw pages for contacts and messages;
+(BIG MISTAKE, SHOULT LEARN START A WEBAPP BY BACKEND!!!)
+
+All the business logic goes to backend!!!

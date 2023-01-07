@@ -1,6 +1,0 @@
-TODO:
-
-try to put in index.css (or other like general style sheet):
-- class infoP1 using text color and shadow vars in theme
-- same for infoP2
-- put it in class var of p tag in create account

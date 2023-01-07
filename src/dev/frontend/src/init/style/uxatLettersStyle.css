@@ -1,4 +1,4 @@
-@import 'themeStyleVars.css';
+@import url("../../base/style/themeStyleVars.css");
 
 .lettersDivClass,
 .letterClass {
@@ -17,7 +17,7 @@
 .letterClass {
     text-align: center;
     font-size: min(25vw, 100vh);
-    font-family: var(--font-family);
+    font-family: var(--general-font-family);
     color: var(--letter-text-color);
     text-shadow: var(--letter-shadow-color) 4px 2px;
 }

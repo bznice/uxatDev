@@ -1,4 +1,4 @@
-@import 'themeStyleVars.css';
+@import url("../../base/style/themeStyleVars.css");
 
 .loggedDiv,
 .loggedBoxDiv {
@@ -9,7 +9,7 @@
 
 .loggedDiv {
     text-align: center;
-    font-family: var(--font-family);
+    font-family: var(--general-font-family);
 }
 
 .loggedBoxDiv {
@@ -56,7 +56,7 @@
     padding: 5px 5px;
     border-radius: 3px;
     font-size: var(--input-font-size);
-    font-family: var(--font-family);
+    font-family: var(--general-font-family);
     background-color: var(--input-background-color);
     border-color: var(--input-border-color);
     color: var(--input-text-color);
@@ -69,7 +69,7 @@
     border-width: 1px;
     border-radius: 3px;
     font-size: var(--button-font-size);
-    font-family: var(--font-family);
+    font-family: var(--general-font-family);
     background-color: var(--button-background-color);
     border-color: var(--button-border-color);
     color: var(--button-text-color);

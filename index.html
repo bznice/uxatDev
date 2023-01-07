@@ -6,19 +6,19 @@
     <title>uXat@DevEnv</title>
     <link rel="icon" type="image/x-icon" href="src/rsc/icons/x.ico">
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/index.css">
-    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/themeStyleVars.css">
-    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/uxatInitStyle.css">
-    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/uxatAccessStyle.css">
-    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/css/uxatLoggedStyle.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/base/style/themeStyleVars.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/base/style/index.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/init/style/uxatLettersStyle.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/access/style/uxatAccessStyle.css">
+    <link rel="stylesheet" type="text/css" href="src/dev/frontend/src/logged/style/uxatLoggedStyle.css">
     <!-- Scripts -->
     <script src="src/dev/frontend/lib/angular-1.8.2/angular.js"></script>
-    <script src="src/dev/frontend/src/js/uxat.js"></script>
+    <script src="src/dev/frontend/src/base/control/uxat.js"></script>
 </head>
 
 <body id="bodyId" class="dark bodyClass ng-scope" ng-controller="uxatCtrl">
     <!-- Main Page -->
-    <ng-include src="'src/dev/frontend/src/html/uxatInit.html'"></ng-include>
+    <ng-include src="'src/dev/frontend/src/init/view/uxatInit.html'"></ng-include>
 </body>
 
 </html>
