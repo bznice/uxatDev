@@ -1,53 +1,61 @@
 @import 'themeStyleVars.css';
 
-.loggedDiv,
-.loggedBoxDiv {
+.accessDiv,
+.accessBoxDiv {
     display: grid;
     grid-template-columns: 100%;
     justify-items: center;
 }
 
-.loggedDiv {
+.accessDiv {
     text-align: center;
     font-family: var(--font-family);
-    color: var(--text-color);
-    text-shadow: var(--shadow-color) 2px 1px;
 }
 
-.loggedBoxDiv {
+.accessBoxDiv {
     text-align: left;
     margin: 20px 100px;
     padding: 30px;
     width: 420px;
     border-radius: 25px;
-    background-color: var(--logged-box-div-background-color);
-    text-shadow: var(--shadow-color) 1px 0.5px;
+    background-color: var(--access-box-div-background-color);
 }
 
-.loggedH1,
-.loggedH2,
-.loggedP,
-.loggedInput {
+.accessBoxDivPin {
+    background-color: var(--pin-box-div-background-color);
+}
+
+.accessH1,
+.accessH2,
+.accessP,
+.accessInput,
+.accessButton {
     width: -webkit-fill-available;
 }
 
-.loggedH1 {
+.accessH1 {
     margin: 25px 0px;
     border: 0px;
     padding: 0px;
     font-size: var(--h1-font-size);
+    color: var(--h1-text-color);
+    text-shadow: var(--h1-shadow-color) 2px 1px;
 }
 
-.loggedH2 {
+.accessH2 {
     text-align: center;
     font-size: var(--h2-font-size);
+    color: var(--h2-text-color);
+    text-shadow: var(--h2-shadow-color) 1px 0.5px;
 }
 
-.loggedP {
+.accessP {
     font-size: var(--p-font-size);
+    color: var(--p-text-color);
+    text-shadow: var(--p-shadow-color) 0.5px 0.2px;
 }
 
-.loggedInput {
+.accessInput {
     margin: 0;
     padding: 5px 5px;
     border-radius: 3px;
@@ -56,13 +64,12 @@
     background-color: var(--input-background-color);
     border-color: var(--input-border-color);
     color: var(--input-text-color);
-    text-shadow: var(--shadow-color) 1px 0.5px;
+    text-shadow: var(--input-shadow-color) 0.5px 0.2px;
 }
 
-.loggedButton {
+.accessButton {
     text-align: center;
     padding: 5px 5px;
-    width: -webkit-fill-available;
     border-width: 1px;
     border-radius: 3px;
     font-size: var(--button-font-size);
@@ -70,5 +77,5 @@
     background-color: var(--button-background-color);
     border-color: var(--button-border-color);
     color: var(--button-text-color);
-    text-shadow: var(--shadow-color) 1px 0.5px;
+    text-shadow: var(--button-shadow-color) 0.5px 0.2px;
 }

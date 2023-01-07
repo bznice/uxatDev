@@ -13,11 +13,17 @@
     --text-color-light: #ededed;
     --shadow-color-light: #b7b7b7;
 
-    --letter-text-color: #121212;
-    --letter-shadow-color: #420000;
+    --h1-text-color: #121212;
+    --h1-shadow-color: #424242;
 
-    --error-text-color: #ee4242;
-    --error-shadow-color: #dd3131;
+    --h2-text-color: #121212;
+    --h2-shadow-color: #424242;
+
+    --p-text-color: #ededed;
+    --p-shadow-color: #b7b7b7;
+
+    --span-error-text-color: #ee4242;
+    --span-error-shadow-color: #dd3131;
 
     --info-text-color-dark: #121212;
     --info-shadow-color-dark: #ededed;
@@ -25,19 +31,29 @@
     --info-text-color-light: #ededed;
     --info-shadow-color-light: #121212;
 
-    --input-text-box-background-color: #dcdcdc;
-    --input-text-box-border-color: #cbcbcb;
-    --input-text-box-text-color: #121212;
+    --letter-text-color: #121212;
+    --letter-shadow-color: #424242;
+
+    --input-background-color: #dcdcdc;
+    --input-border-color: #cbcbcb;
+    --input-text-color: #121212;
+    --input-shadow-color: #9a9a9a;
 
     --button-background-color: #303030;
     --button-border-color: #404040;
     --button-text-color: #efefef;
+    --button-shadow-color: #424242;
 
     /* - - - SIZES - - - */
 
     --h1-font-size: 30px;
     --h2-font-size: 20px;
     --p-font-size: 18px;
+    
+    --span-error-font-size: 14px;
+    
+    --info-font-size: 14px;
+
     --input-font-size: 16px;
     --button-font-size: 16px;
 

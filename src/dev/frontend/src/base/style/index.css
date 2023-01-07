@@ -1,0 +1,35 @@
+@import 'themeStyleVars.css';
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.bodyClass {
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-background-color);
+}
+
+.errorSpan {
+    text-align: left;
+    font-size: var(--span-error-font-size);
+    font-family: var(--font-family);
+    color: var(--span-error-text-color);
+    text-shadow: var(--span-error-shadow-color) 2px 1px;
+}
+
+.infoLight {
+    color: var(--info-text-color-light);
+    text-shadow: var(--info-shadow-color-light) 0.5px 0.2px;
+}
+
+.infoDark {
+    color: var(--info-text-color-dark);
+    text-shadow: var(--info-shadow-color-dark) 0.5px 0.2px;
+}
