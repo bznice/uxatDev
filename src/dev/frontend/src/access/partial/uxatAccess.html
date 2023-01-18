@@ -1,0 +1,21 @@
+<div class="accessDiv">
+    <h1 class="accessH1">
+        WELCOME TO uXat PLATFORM!
+    </h1>
+    <ng-include
+        src="'src/dev/frontend/src/access/view/uxatAccessPin.html'"
+        ng-if="accessPinView">
+    </ng-include>
+    <ng-include
+        src="'src/dev/frontend/src/access/view/uxatAccessHow.html'"
+        ng-if="accessHowView">
+    </ng-include>
+    <ng-include
+        src="'src/dev/frontend/src/access/view/uxatAccessLogin.html'"
+        ng-if="accessLoginView">
+    </ng-include>
+    <ng-include
+        src="'src/dev/frontend/src/access/view/uxatAccessCreate.html'"
+        ng-if="accessCreateView">
+    </ng-include>
+</div>

@@ -1,0 +1,34 @@
+<div class="accessBoxDiv">
+    <h2 class="accessH2">
+        Login Account
+    </h2>
+    <p class="accessP">
+        Nick:
+    </p>
+    <input type="text"
+        class="accessInput"
+        placeholder="Put your nick here..."
+        ng-model="user.nick"/>
+    <p class="accessP">
+        Pass:
+    </p>
+    <input type="text"
+        class="accessInput"
+        placeholder="Put your pass here..."
+        ng-model="user.pass"/>
+    <p></p>
+    <button class="accessButton"
+        ng-click="loginUser(user)"
+        ng-disabled="!user.nick || !user.pass">
+        Login Account
+    </button>
+    <p></p>
+    <button class="accessButton"
+        ng-click="goToAccessMode(false)">
+        Back to Login/Create
+    </button>
+    <p></p>
+    <span id="spanErrorLogin"
+        class="errorSpan">
+    </span>
+</div>

@@ -1,0 +1,19 @@
+<div class="accessBoxDiv accessBoxDivPin">
+    <h2 class="accessH2">
+        Let's see if you know!
+    </h2>
+    <p class="accessP">
+        Pin:
+    </p>
+    <input type="text"
+        class="accessInput"
+        placeholder="Put pin here..."
+        ng-model="pinAccess"/>
+    <p></p>
+    <button class="accessButton"
+        ng-click="pinValidation(pinAccess)"
+        ng-disabled="!pinAccess">
+        Go
+    </button>
+    <p></p>
+</div>

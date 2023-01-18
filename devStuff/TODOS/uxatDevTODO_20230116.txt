@@ -1,0 +1,5 @@
+TODO
+- use choco to install jdk8 and other stuff req to set up h2db
+- try to use h2db, probably will be so much easy to use spring
+- http://www.h2database.com/html/installation.html
+- draw contacts and messages pages
