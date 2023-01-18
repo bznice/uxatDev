@@ -28,6 +28,7 @@
 .accessH1,
 .accessH2,
 .accessP,
+.accessForm,
 .accessInput,
 .accessButton {
     width: -webkit-fill-available;
