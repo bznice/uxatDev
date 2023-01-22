@@ -307,13 +307,13 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     /*---------- LOGIN ------------------------*/
 
     $scope.spanErrorUserNotRegisted = function () {
-        var spanError = document.getElementById("spanErrorLogin");
+        var spanError = document.getElementById("SpanErrorLogin");
         spanError.textContent = userNotRegistedMessage;
         $scope.setTimeoutSpan(spanError, $scope.userNotRegistedSpan);
     }
 
     $scope.spanErrorPassIncorrect = function () {
-        var spanError = document.getElementById("spanErrorLogin");
+        var spanError = document.getElementById("SpanErrorLogin");
         spanError.textContent = passIncorrectMessage;
         $scope.setTimeoutSpan(spanError, $scope.passIncorrectSpan);
     }
@@ -321,25 +321,25 @@ angular.module("uxat").controller("uxatCtrl", ['$scope', function ($scope) {
     /*---------- CREATE -----------------------*/
 
     $scope.spanErrorPassDontMatch = function () {
-        var spanError = document.getElementById("spanErrorCreate");
+        var spanError = document.getElementById("SpanErrorCreate");
         spanError.textContent = passDontMatchMessage;
         $scope.setTimeoutSpan(spanError, $scope.passDontMatchSpan);
     }
 
     $scope.spanErrorPassSmall = function () {
-        var spanError = document.getElementById("spanErrorCreate");
+        var spanError = document.getElementById("SpanErrorCreate");
         spanError.textContent = passSmallMessage;
         $scope.setTimeoutSpan(spanError, $scope.passSmallSpan);
     }
 
     $scope.spanErrorPassNotAllow = function () {
-        var spanError = document.getElementById("spanErrorCreate");
+        var spanError = document.getElementById("SpanErrorCreate");
         spanError.textContent = passNotAllowMessage;
         $scope.setTimeoutSpan(spanError, $scope.passNotAllowSpan);
     }
 
     $scope.spanErrorNickNotUnique = function () {
-        var spanError = document.getElementById("spanErrorCreate");
+        var spanError = document.getElementById("SpanErrorCreate");
         spanError.textContent = userNotUniqueMessage;
         $scope.setTimeoutSpan(spanError, $scope.userNotUniqueSpan);
     }

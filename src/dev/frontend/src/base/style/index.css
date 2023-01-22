@@ -16,25 +16,25 @@ html {
     background-color: var(--body-background-color);
 }
 
+.infoLight,
+.infoDark {
+    font-size: var(--info-font-size);
+}
+
+.infoLight {
+    color: var(--info-text-color-light);
+    text-shadow: var(--info-shadow-color-light) 0.5px 0.2px;
+}
+
+.infoDark {
+    color: var(--info-text-color-dark);
+    text-shadow: var(--info-shadow-color-dark) 0.5px 0.2px;
+}
+
 .errorSpan {
     text-align: left;
     font-size: var(--span-error-font-size);
     font-family: var(--general-font-family);
     color: var(--span-error-text-color);
     text-shadow: var(--span-error-shadow-color) 2px 1px;
-}
-
-#infoLight,
-#infoDark {
-    font-size: var(--info-font-size);
-}
-
-#infoLight {
-    color: var(--info-text-color-light);
-    text-shadow: var(--info-shadow-color-light) 0.5px 0.2px;
-}
-
-#infoDark {
-    color: var(--info-text-color-dark);
-    text-shadow: var(--info-shadow-color-dark) 0.5px 0.2px;
 }

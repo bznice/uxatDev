@@ -1,0 +1,5 @@
+- 22 01 2023:
+    - input type password in:
+        - pin;
+        - login;
+        - create;

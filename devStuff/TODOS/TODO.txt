@@ -1,0 +1,5 @@
+- Delete account;
+- Draw pages for contacts and messages;
+- Set up h2 database;
+- Use choco to install requirements;
+- Learn spring;

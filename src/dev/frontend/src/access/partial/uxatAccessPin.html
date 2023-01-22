@@ -1,14 +1,20 @@
 <div class="accessBoxDiv accessBoxDivPin">
-    <form class="accessForm" ng-submit="pinValidation(pinAccess)">
+    <form class="accessForm"
+        ng-submit="pinValidation(pinAccess)">
         <h2 class="accessH2">
             Are You Welcome!?
         </h2>
         <p class="accessP">
             Pin:
         </p>
-        <input type="text" class="accessInput" placeholder="Put pin here..." ng-model="pinAccess" />
+        <input type="password"
+            class="accessInput"
+            placeholder="Put pin here..."
+            ng-model="pinAccess" />
         <p></p>
-        <button class="accessButton" ng-click="pinValidation(pinAccess)" ng-disabled="!pinAccess">
+        <button class="accessButton"
+            ng-click="pinValidation(pinAccess)"
+            ng-disabled="!pinAccess">
             Go
         </button>
         <p></p>
